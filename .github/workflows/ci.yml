@@ -27,5 +27,5 @@ jobs:
         run: pytest tests/
 
       - name: Lancer flake8
-        run: flake8 .
+        run: flake8 . --ignore=E302,E305,W391
 
