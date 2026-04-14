@@ -1,1 +1,23 @@
+name: Integration continue
 
+on:
+  push:
+
+jobs:
+  tests_python:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Recuperer le code du depot
+        uses: actions/checkout@v4
+
+      - name: Installer Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Installer pytest (outil de test)
+        run: pip install pytest
+
+      - name: Lancer les tests
+        run: pytest tests/
